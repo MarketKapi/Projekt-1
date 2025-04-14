@@ -1,9 +1,3 @@
-"""
-projekt_1.py: první projekt do Engeto Online Python Akademie
-
-author: Markéta Kapičková
-email: marketa.kapickova@gmail.com
-"""
 TEXTS = [
     '''Situated about 10 miles west of Kemmerer,
     Fossil Butte is a ruggedly impressive
@@ -46,8 +40,9 @@ password = input("password: ").lower()
 print(line)
 
 if username in registered_users and registered_users[username] == password:
-    print(f"Welcome to the app, {username}") 
-    print(f"We have 3 texts to be analyzed.\n{line}")      
+    print(f"Welcome to the app, {username}", sep="\n") 
+    print("We have 3 texts to be analyzed.", line, sep="\n")   
+    
 else:
     print("unregistered user, terminating the program..")
     quit()
@@ -63,70 +58,6 @@ if text_number.isdigit():
 else:
     print("not a number, terminating the program..")
     quit()
-
-selection = TEXTS[number - 1].split()
-words = len(selection)
-print(f"There are {len(selection)} words in the selected text.")
-
-titlecase_words = 0
-for word in selection:
-    if word[0].istitle() and not word.isupper():
-        titlecase_words += 1
-print(f"There are {titlecase_words} titlecase words.")
-
-uppercase_words = 0
-for word in selection:
-    if word.isupper():
-        uppercase_words += 1
-if uppercase_words == 1:
-    print(f"There is {uppercase_words} uppercase word.")
-else:
-    print(f"There are {uppercase_words} uppercase words.")
-
-lowercase_words = 0
-for word in selection:
-    if word.islower():
-        lowercase_words += 1
-print(f"There are {lowercase_words} lowercase words.")
-
-numeric_strings = 0
-numbers = []
-for word in selection:
-    if word.isnumeric():
-        numeric_strings += 1
-        numbers.append(int(word))
-if numeric_strings == 1:
-    print(f"There is {numeric_strings} numeric string.")
-else:
-    print(f"There are {numeric_strings} numeric strings.")
-print("The sum of all the numbers:", sum(numbers))
-
-print(f"{line}\nLEN| OCCURENCES      |NR.\n{line}")
-
-number_of_characters = {}
-for word in selection:
-    punctuation = word.strip(",.-")
-    length = len(punctuation)
-    if length > 0:
-        if length in number_of_characters:
-            number_of_characters[length] += 1
-        else:
-            number_of_characters[length] = 1
-
-sort = sorted(number_of_characters.items())
-
-for length, count in sort:
-    stars = "*" * count
-    print(f"{length:>3}|{stars:<20}|{count}")
-
-
-
-    
-
-
-
-
-
 
 
 
